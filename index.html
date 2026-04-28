@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Valor Sports Performance — Golf strength & speed for serious players</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0c0a;
+    --bg-2: #11140f;
+    --bg-3: #181c14;
+    --line: rgba(220, 215, 190, 0.10);
+    --line-2: rgba(220, 215, 190, 0.18);
+    --ink: #f3efe2;
+    --ink-2: #c9c4b3;
+    --ink-3: #7c7869;
+    --brass: #c9a85c;
+    --brass-2: #b08c3e;
+    --serif: 'Fraunces', 'Times New Roman', serif;
+    --sans: 'Inter', -apple-system, system-ui, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: var(--brass); color: var(--bg); }
+
+  /* ---------- Layout primitives ---------- */
+  .wrap {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--brass);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--brass);
+    display: inline-block;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    color: var(--ink);
+  }
+
+  /* ---------- Nav ---------- */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    backdrop-filter: blur(16px);
+    background: rgba(10, 12, 10, 0.65);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 18px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    display: inline-flex;
+    align-items: center;
+    height: 28px;
+    text-decoration: none;
+  }
+  .logo svg {
+    height: 100%;
+    width: auto;
+    display: block;
+  }
+  .logo:hover .logo-underline {
+    width: 100%;
+    transition: width 0.3s ease;
+  }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    align-items: center;
+  }
+  .nav-links a {
+    color: var(--ink-2);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta {
+    background: var(--brass);
+    color: var(--bg) !important;
+    padding: 10px 18px;
+    border-radius: 2px;
+    font-weight: 500;
+    font-size: 12px !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: #d9b86c; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    min-height: 100vh;
+    padding: 140px 0 80px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 80% 20%, rgba(201, 168, 92, 0.08), transparent 50%),
+      radial-gradient(ellipse at 10% 90%, rgba(70, 90, 50, 0.15), transparent 60%);
+    pointer-events: none;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-text .eyebrow { margin-bottom: 32px; }
+  .hero h1 {
+    font-size: clamp(54px, 6.5vw, 92px);
+    margin-bottom: 32px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--brass);
+  }
+  .hero-sub {
+    font-size: 18px;
+    color: var(--ink-2);
+    max-width: 480px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 56px;
+  }
+  .btn-primary {
+    background: var(--brass);
+    color: var(--bg);
+    padding: 16px 32px;
+    border: none;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+    border-radius: 2px;
+  }
+  .btn-primary:hover { background: #d9b86c; }
+  .btn-secondary {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--brass);
+    padding-bottom: 4px;
+    transition: color 0.2s;
+  }
+  .btn-secondary:hover { color: var(--brass); }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+    max-width: 520px;
+  }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+
+  /* Hero photo placeholder */
+  .hero-visual {
+    position: relative;
+    aspect-ratio: 4/5;
+    background: linear-gradient(135deg, #1a1d16 0%, #0f120c 100%);
+    border: 1px solid var(--line-2);
+    overflow: hidden;
+  }
+  .hero-visual::after {
+    content: 'PHOTO: ALEX MID-COACHING SESSION';
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--ink-3);
+  }
+  .hero-visual-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 80px 80px;
+    opacity: 0.5;
+  }
+  .hero-visual-mark {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    max-width: 280px;
+  }
+  .hero-visual-mark svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .hero-visual-tag {
+    position: absolute;
+    top: 24px; left: 24px;
+    font-family: var(--sans);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--brass);
+  }
+  .hero-visual-tag::before {
+    content: '●';
+    margin-right: 8px;
+    font-size: 8px;
+  }
+
+  /* ---------- Marquee credentials ---------- */
+  .marquee {
+    padding: 32px 0;
+    border-bottom: 1px solid var(--line);
+    background: var(--bg-2);
+    overflow: hidden;
+  }
+  .marquee-inner {
+    display: flex;
+    gap: 80px;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .marquee-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .marquee-item {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--ink-2);
+    font-weight: 400;
+  }
+
+  /* ---------- Section base ---------- */
+  section {
+    padding: 120px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .section-head {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    margin-bottom: 80px;
+  }
+  .section-head h2 {
+    font-size: clamp(40px, 4.5vw, 64px);
+  }
+  .section-head h2 em {
+    font-style: italic;
+    color: var(--brass);
+    font-weight: 300;
+  }
+  .section-head p {
+    font-size: 17px;
+    color: var(--ink-2);
+    line-height: 1.7;
+    align-self: end;
+  }
+
+  /* ---------- About / Track record ---------- */
+  .resume-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .resume-cell {
+    background: var(--bg);
+    padding: 40px 32px;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .resume-cell .level {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin-bottom: 16px;
+  }
+  .resume-cell h3 {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+  .resume-cell p {
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.6;
+  }
+  .resume-cell .num {
+    font-family: var(--serif);
+    font-size: 14px;
+    color: var(--ink-3);
+    margin-bottom: 12px;
+    letter-spacing: 0.1em;
+  }
+
+  /* ---------- Triangle System ---------- */
+  .triangle-section {
+    background: var(--bg-2);
+  }
+  .triangle-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .triangle-svg {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    display: block;
+  }
+  .pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .pillar {
+    padding: 28px 0;
+    border-top: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 24px;
+  }
+  .pillar:last-child { border-bottom: 1px solid var(--line); }
+  .pillar-num {
+    font-family: var(--serif);
+    font-size: 36px;
+    color: var(--brass);
+    font-weight: 300;
+    line-height: 1;
+  }
+  .pillar h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+  .pillar p {
+    color: var(--ink-2);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ---------- What to expect ---------- */
+  .expect-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .expect-card {
+    border: 1px solid var(--line);
+    padding: 40px 32px;
+    background: var(--bg-2);
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .expect-card:hover {
+    border-color: var(--brass);
+    transform: translateY(-2px);
+  }
+  .expect-time {
+    font-family: var(--serif);
+    font-size: 14px;
+    color: var(--brass);
+    letter-spacing: 0.1em;
+    margin-bottom: 32px;
+  }
+  .expect-card h3 {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  .expect-card p {
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.6;
+  }
+
+  /* ---------- Who this is for ---------- */
+  .gate-section {
+    background: var(--bg-2);
+  }
+  .gate-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+  }
+  .gate-col h3 {
+    font-size: 22px;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+  }
+  .gate-col h3 .marker {
+    display: inline-block;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    margin-right: 14px;
+    vertical-align: middle;
+  }
+  .gate-col.yes h3 .marker { background: var(--brass); }
+  .gate-col.no h3 .marker {
+    background: transparent;
+    border: 1px solid var(--ink-3);
+  }
+  .gate-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .gate-list li {
+    font-size: 16px;
+    color: var(--ink-2);
+    padding-left: 24px;
+    position: relative;
+    line-height: 1.6;
+  }
+  .gate-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 12px;
+    height: 1px;
+    background: var(--ink-3);
+  }
+  .gate-col.yes .gate-list li {
+    color: var(--ink);
+  }
+  .gate-col.yes .gate-list li::before {
+    background: var(--brass);
+  }
+
+  /* ---------- Form ---------- */
+  .form-section { padding: 140px 0; }
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+  }
+  .form-intro h2 {
+    font-size: clamp(40px, 4.5vw, 56px);
+    margin-bottom: 24px;
+  }
+  .form-intro h2 em {
+    font-style: italic;
+    color: var(--brass);
+    font-weight: 300;
+  }
+  .form-intro p {
+    color: var(--ink-2);
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+  .form-meta {
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+  }
+  .form-meta-item {
+    margin-bottom: 20px;
+  }
+  .form-meta-label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 6px;
+  }
+  .form-meta-val {
+    font-family: var(--serif);
+    font-size: 18px;
+    color: var(--ink);
+  }
+
+  form { display: flex; flex-direction: column; gap: 24px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .field { display: flex; flex-direction: column; gap: 8px; }
+  label {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 500;
+  }
+  input, select, textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--line-2);
+    padding: 12px 0;
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    transition: border-color 0.2s;
+  }
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-bottom-color: var(--brass);
+  }
+  select option { background: var(--bg); color: var(--ink); }
+  textarea {
+    resize: vertical;
+    min-height: 80px;
+    line-height: 1.5;
+  }
+  .form-submit {
+    margin-top: 16px;
+    background: var(--brass);
+    color: var(--bg);
+    border: none;
+    padding: 18px 32px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s;
+    align-self: flex-start;
+  }
+  .form-submit:hover { background: #d9b86c; }
+
+  /* ---------- Footer ---------- */
+  footer {
+    padding: 80px 0 40px;
+    background: var(--bg-2);
+  }
+  .foot-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 60px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid var(--line);
+  }
+  .foot-grid h4 {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 20px;
+    font-family: var(--sans);
+    font-weight: 500;
+  }
+  .foot-brand .logo { font-size: 28px; margin-bottom: 16px; display: block; }
+  .foot-brand p {
+    color: var(--ink-2);
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 360px;
+  }
+  .foot-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .foot-list a {
+    color: var(--ink-2);
+    text-decoration: none;
+    font-size: 14px;
+  }
+  .foot-list a:hover { color: var(--brass); }
+  .foot-bottom {
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    color: var(--ink-3);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 900px) {
+    .hero-grid, .section-head, .triangle-grid, .form-grid, .gate-grid, .foot-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .resume-grid, .expect-grid {
+      grid-template-columns: 1fr;
+    }
+    .form-row { grid-template-columns: 1fr; }
+    .nav-links a:not(.nav-cta) { display: none; }
+    .hero { padding: 110px 0 60px; }
+    section { padding: 80px 0; }
+    .hero-stats { grid-template-columns: 1fr 1fr; gap: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo" aria-label="Valor Sports Performance">
+      <svg viewBox="0 0 280 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <!-- V — slight forward lean -->
+        <path d="M 8 8 L 26 8 L 38 50 L 50 8 L 68 8 L 50 64 L 26 64 Z" fill="#f3efe2"/>
+        <!-- A -->
+        <path d="M 72 64 L 88 8 L 104 8 L 120 64 L 104 64 L 101 52 L 91 52 L 88 64 Z M 93 42 L 99 42 L 96 28 Z" fill="#f3efe2"/>
+        <!-- L -->
+        <path d="M 124 8 L 140 8 L 140 50 L 162 50 L 162 64 L 124 64 Z" fill="#f3efe2"/>
+        <!-- O — rounded, not octagonal -->
+        <path d="M 184 6 Q 206 6 206 36 Q 206 66 184 66 Q 162 66 162 36 Q 162 6 184 6 Z M 184 22 Q 176 22 176 36 Q 176 50 184 50 Q 192 50 192 36 Q 192 22 184 22 Z" fill="#f3efe2"/>
+        <!-- R — refined construction with proper leg -->
+        <path d="M 210 8 L 240 8 Q 254 8 254 22 Q 254 32 246 36 L 258 64 L 242 64 L 232 40 L 226 40 L 226 64 L 210 64 Z M 226 20 L 226 30 L 236 30 Q 240 30 240 25 Q 240 20 236 20 Z" fill="#f3efe2"/>
+        <!-- Brass underline below the V — Valor's signature element -->
+        <line class="logo-underline" x1="8" y1="74" x2="68" y2="74" stroke="#c9a85c" stroke-width="3"/>
+      </svg>
+    </a>
+    <div class="nav-links">
+      <a href="#system">The System</a>
+      <a href="#sessions">Sessions</a>
+      <a href="#about">About Alex</a>
+      <a href="#apply" class="nav-cta">Apply</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <span class="eyebrow">Athletic Specialist — Richardson, TX</span>
+        <h1>Train where<br/>the <em>wins</em> come from.</h1>
+        <p class="hero-sub">
+          60,000+ client hours. PGA, LPGA, Korn Ferry, and NCAA wins on the
+          board. 30+ D1 scholarships earned. Valor Sports Performance is the
+          training program for golfers who measure success in trophies — not
+          treadmill miles.
+        </p>
+        <div class="hero-actions">
+          <a href="#apply" class="btn-primary">Apply to train</a>
+          <a href="#system" class="btn-secondary">See the method →</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="stat-num">60k<span style="color:var(--brass);">+</span></div>
+            <div class="stat-label">Client hours</div>
+          </div>
+          <div>
+            <div class="stat-num">650<span style="color:var(--brass);">+</span></div>
+            <div class="stat-label">Junior wins</div>
+          </div>
+          <div>
+            <div class="stat-num">30<span style="color:var(--brass);">+</span></div>
+            <div class="stat-label">D1 scholarships</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-visual-grid"></div>
+        <div class="hero-visual-tag">Live coaching</div>
+        <div class="hero-visual-mark">
+          <svg viewBox="0 0 80 90" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <!-- Big V monogram with the brass underline -->
+            <path d="M 4 4 L 22 4 L 36 60 L 50 4 L 76 4 L 50 84 L 22 84 Z" fill="rgba(201, 168, 92, 0.18)"/>
+            <line x1="4" y1="88" x2="76" y2="88" stroke="rgba(201, 168, 92, 0.35)" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ MARQUEE / CREDENTIALS ============ -->
+<div class="marquee">
+  <div class="marquee-inner">
+    <span class="marquee-label">Wins recorded with athletes from</span>
+    <span class="marquee-item">PGA Tour</span>
+    <span class="marquee-item">LPGA Tour</span>
+    <span class="marquee-item">Korn Ferry</span>
+    <span class="marquee-item">NCAA</span>
+  </div>
+</div>
+
+<!-- ============ ABOUT / TRACK RECORD ============ -->
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">The track record</span>
+        <h2 style="margin-top: 24px;">Trained at every level<br/>of the <em>game.</em></h2>
+      </div>
+      <p>
+        Alex Peckham has logged over 60,000 client hours building golf-specific
+        strength, speed, and durability into players from the junior circuit to the
+        PGA and LPGA Tours. The philosophy is simple: <em style="color: var(--ink); font-style: italic;">
+        my job is to keep people evergreen</em> — available to train, enjoying training,
+        and returning fast when life happens. That's how careers get built.
+      </p>
+    </div>
+    <div class="resume-grid">
+      <div class="resume-cell">
+        <div>
+          <div class="num">01</div>
+          <span class="level">Foundation</span>
+          <h3>Elite juniors</h3>
+        </div>
+        <p>650+ junior tournament wins. 30+ D1 scholarships earned. Athletic development with growth-plate-aware programming for AJGA-track players.</p>
+      </div>
+      <div class="resume-cell">
+        <div>
+          <div class="num">02</div>
+          <span class="level">Development</span>
+          <h3>NCAA</h3>
+        </div>
+        <p>NCAA wins on the board. Off-season strength blocks and in-season maintenance for D1 and high-level amateur golfers.</p>
+      </div>
+      <div class="resume-cell">
+        <div>
+          <div class="num">03</div>
+          <span class="level">Performance</span>
+          <h3>Korn Ferry</h3>
+        </div>
+        <p>Travel-ready programming, recovery protocols, and speed work for players grinding toward the PGA card.</p>
+      </div>
+      <div class="resume-cell">
+        <div>
+          <div class="num">04</div>
+          <span class="level">The Tour</span>
+          <h3>PGA &amp; LPGA</h3>
+        </div>
+        <p>Tour-level training partnerships built around tournament schedules, course demands, and longevity at the top.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRIANGLE SYSTEM ============ -->
+<section id="system" class="triangle-section">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">The methodology</span>
+        <h2 style="margin-top: 24px;">The Triangle<br/>System.</h2>
+      </div>
+      <p>
+        The proprietary system Alex uses to build speed into golfers without
+        breaking them. Three interconnected pillars, balanced against each
+        other — because most programs over-index on one and ignore the rest.
+        That's how players get fast but get hurt, or get strong but lose feel.
+      </p>
+    </div>
+    <div class="triangle-grid">
+      <svg class="triangle-svg" viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="200,40 360,320 40,320"
+          fill="none" stroke="#c9a85c" stroke-width="1.5" />
+        <line x1="200" y1="40" x2="200" y2="320" stroke="rgba(201,168,92,0.25)" stroke-width="1" stroke-dasharray="3,4" />
+        <line x1="40" y1="320" x2="280" y2="180" stroke="rgba(201,168,92,0.25)" stroke-width="1" stroke-dasharray="3,4" />
+        <line x1="360" y1="320" x2="120" y2="180" stroke="rgba(201,168,92,0.25)" stroke-width="1" stroke-dasharray="3,4" />
+        <circle cx="200" cy="40" r="42" fill="#181c14" stroke="#c9a85c" stroke-width="1" />
+        <circle cx="40" cy="320" r="42" fill="#181c14" stroke="#c9a85c" stroke-width="1" />
+        <circle cx="360" cy="320" r="42" fill="#181c14" stroke="#c9a85c" stroke-width="1" />
+        <text x="200" y="38" text-anchor="middle" fill="#c9a85c" font-family="Inter" font-size="9" letter-spacing="2">01</text>
+        <text x="200" y="55" text-anchor="middle" fill="#f3efe2" font-family="Fraunces" font-size="14">Pillar one</text>
+        <text x="40" y="318" text-anchor="middle" fill="#c9a85c" font-family="Inter" font-size="9" letter-spacing="2">02</text>
+        <text x="40" y="335" text-anchor="middle" fill="#f3efe2" font-family="Fraunces" font-size="14">Pillar two</text>
+        <text x="360" y="318" text-anchor="middle" fill="#c9a85c" font-family="Inter" font-size="9" letter-spacing="2">03</text>
+        <text x="360" y="335" text-anchor="middle" fill="#f3efe2" font-family="Fraunces" font-size="14">Pillar three</text>
+        <circle cx="200" cy="227" r="4" fill="#c9a85c" />
+      </svg>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pillar-num">01</div>
+          <div>
+            <h3>[Pillar one]</h3>
+            <p style="color: var(--ink-3); font-style: italic;">Awaiting Alex's actual three pillars — placeholder copy below describes the typical Strength / Speed / Mobility framing as a starting point.</p>
+            <p style="margin-top: 8px;">Force production through the ground, the hips, and the trunk — the only thing that drives club head speed when leverage runs out.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">02</div>
+          <div>
+            <h3>[Pillar two]</h3>
+            <p>Rotational velocity, ground reaction force, and rate of force development. Trained specifically — not as an afterthought to strength work.</p>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-num">03</div>
+          <div>
+            <h3>[Pillar three]</h3>
+            <p>The range of motion to actually use the strength and speed you build. This is where careers get extended — or shortened.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT TO EXPECT ============ -->
+<section id="sessions">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">A session at Valor</span>
+        <h2 style="margin-top: 24px;">One hour.<br/><em>Every detail.</em></h2>
+      </div>
+      <p>
+        Every Valor session is programmed against your last one and your next event.
+        Nothing is filler. Here's what 60 minutes at Crull Fitness in Richardson
+        actually looks like.
+      </p>
+    </div>
+    <div class="expect-grid">
+      <div class="expect-card">
+        <div class="expect-time">00:00 — 00:15</div>
+        <h3>Movement prep</h3>
+        <p>Targeted mobility and activation work specific to the day's lifts and your assessment markers. Not a generic warmup.</p>
+      </div>
+      <div class="expect-card">
+        <div class="expect-time">00:15 — 00:45</div>
+        <h3>Strength &amp; power</h3>
+        <p>Periodized lifts paired with rotational power output — measured, tracked, and progressed against your tournament schedule.</p>
+      </div>
+      <div class="expect-card">
+        <div class="expect-time">00:45 — 01:00</div>
+        <h3>Speed &amp; recovery</h3>
+        <p>Overspeed protocols, ground reaction work, and active recovery. You leave faster than you came in — not just more tired.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHO THIS IS FOR ============ -->
+<section class="gate-section">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Honest about fit</span>
+        <h2 style="margin-top: 24px;">Who Valor is — <br/>and <em>isn't</em> — for.</h2>
+      </div>
+      <p>
+        Coaching only works when both sides are aligned on what we're actually doing.
+        Read this honestly before applying. There's no hard feelings if it isn't
+        a fit — but there's no point pretending it is.
+      </p>
+    </div>
+    <div class="gate-grid">
+      <div class="gate-col yes">
+        <h3><span class="marker"></span>This is for you if</h3>
+        <ul class="gate-list">
+          <li>You compete — junior, college, amateur, or pro — and your scores matter</li>
+          <li>You're committed to 2–4 sessions a week and the work between them</li>
+          <li>You want measurable speed and strength gains tied to your game</li>
+          <li>You can train in person at Crull Fitness in Richardson, TX</li>
+          <li>You take coaching seriously and want a real partnership</li>
+        </ul>
+      </div>
+      <div class="gate-col no">
+        <h3><span class="marker"></span>This isn't for you if</h3>
+        <ul class="gate-list">
+          <li>You're looking for a one-off session or a casual gym membership</li>
+          <li>You're shopping primarily on price, not fit</li>
+          <li>You expect distance gains without the consistency to earn them</li>
+          <li>You'd rather follow a generic program than be coached individually</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APPLY / FORM ============ -->
+<section id="apply" class="form-section">
+  <div class="wrap">
+    <div class="form-grid">
+      <div class="form-intro">
+        <span class="eyebrow">Apply to train</span>
+        <h2 style="margin-top: 24px;">Tell me about<br/>your <em>game.</em></h2>
+        <p>
+          Every player I take on goes through a brief application so I can make sure
+          I'm the right coach for what you're trying to accomplish. Fill this out
+          honestly — I'll be in touch within 48 hours to schedule a call.
+        </p>
+        <div class="form-meta">
+          <div class="form-meta-item">
+            <div class="form-meta-label">Train at</div>
+            <div class="form-meta-val">Crull Fitness — Richardson, TX</div>
+          </div>
+          <div class="form-meta-item">
+            <div class="form-meta-label">Direct line</div>
+            <div class="form-meta-val">(720) 937-1446</div>
+          </div>
+          <div class="form-meta-item">
+            <div class="form-meta-label">Coach</div>
+            <div class="form-meta-val">Alex Peckham</div>
+          </div>
+        </div>
+      </div>
+      <form>
+        <div class="form-row">
+          <div class="field">
+            <label for="fname">First name</label>
+            <input type="text" id="fname" name="fname" />
+          </div>
+          <div class="field">
+            <label for="lname">Last name</label>
+            <input type="text" id="lname" name="lname" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" />
+          </div>
+          <div class="field">
+            <label for="phone">Mobile</label>
+            <input type="tel" id="phone" name="phone" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="level">Level of play</label>
+            <select id="level" name="level">
+              <option>Select one…</option>
+              <option>Junior — competitive</option>
+              <option>College — D1 / D2 / D3 / NAIA</option>
+              <option>Amateur — handicap under 5</option>
+              <option>Mini-tour / Korn Ferry</option>
+              <option>PGA Tour</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="hcp">Current handicap / status</label>
+            <input type="text" id="hcp" name="hcp" placeholder="e.g. +2, KF card holder" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="goals">What are you trying to accomplish?</label>
+          <textarea id="goals" name="goals" placeholder="Speed, distance, durability, recovery from injury, prep for a specific event — be specific."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Submit application →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="logo" style="height: 38px;">
+          <svg viewBox="0 0 280 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M 8 8 L 26 8 L 38 50 L 50 8 L 68 8 L 50 64 L 26 64 Z" fill="#f3efe2"/>
+            <path d="M 72 64 L 88 8 L 104 8 L 120 64 L 104 64 L 101 52 L 91 52 L 88 64 Z M 93 42 L 99 42 L 96 28 Z" fill="#f3efe2"/>
+            <path d="M 124 8 L 140 8 L 140 50 L 162 50 L 162 64 L 124 64 Z" fill="#f3efe2"/>
+            <path d="M 184 6 Q 206 6 206 36 Q 206 66 184 66 Q 162 66 162 36 Q 162 6 184 6 Z M 184 22 Q 176 22 176 36 Q 176 50 184 50 Q 192 50 192 36 Q 192 22 184 22 Z" fill="#f3efe2"/>
+            <path d="M 210 8 L 240 8 Q 254 8 254 22 Q 254 32 246 36 L 258 64 L 242 64 L 232 40 L 226 40 L 226 64 L 210 64 Z M 226 20 L 226 30 L 236 30 Q 240 30 240 25 Q 240 20 236 20 Z" fill="#f3efe2"/>
+            <line x1="8" y1="74" x2="68" y2="74" stroke="#c9a85c" stroke-width="3"/>
+          </svg>
+        </span>
+        <p style="margin-top: 20px;">Golf-specific strength, speed, and durability training. Built for serious players. Based in Richardson, Texas.</p>
+      </div>
+      <div>
+        <h4>Site</h4>
+        <ul class="foot-list">
+          <li><a href="#about">About Alex</a></li>
+          <li><a href="#system">The System</a></li>
+          <li><a href="#sessions">Sessions</a></li>
+          <li><a href="#apply">Apply</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul class="foot-list">
+          <li><a href="tel:7209371446">(720) 937-1446</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Crull Fitness, Richardson</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Valor Sports Performance. All rights reserved.</span>
+      <span>Designed for players who don't compromise.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
